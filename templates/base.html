@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="​Education for health and well-being, ​Essential Study Tips for Effective Learning, ​How to Learn Tech Skills, ​The Institute for Effective Education, ​An Effective Education, ​Education for health and well-being">
+    <meta name="description" content="">
+  
     <title> {% block title %}{% endblock %} </title>
-    {% block styles %}{% endblock %}
+    {% block head %}{% endblock %}
   </head>
-  <body>
-    <header>
-        <nav>
-            <h1>Sha'af Language</h1>
-            {% block header %}{% endblock %}
-        </nav>
+  <body data-home-page="Home.html" data-home-page-title="Home" data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en">
+    <header class="u-clearfix u-header u-header" id="sec-b174">
+        {% block header %}{% endblock %}
     </header>
 
     {% block content %}{% endblock %}
 
-    <footer> {% block footer %}{% endblock %} </footer>
-    {% block scripts %}{% endblock %}
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-caad"> 
+        {% block footer %}{% endblock %} 
+    </footer>
+    {% block other_content %}{% endblock %}
   </body>
 </html>
