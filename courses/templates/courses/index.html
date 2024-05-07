@@ -3,10 +3,10 @@
 
 {% block title %}Sha'af{% endblock %}
 {% block head %}
-	 <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Home.css" media="screen">
-    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+	 <link rel="stylesheet" href="{% static 'courses/nicepage.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'courses/Home.css' %}"  media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'courses/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'courses/nicepage.js' %}" defer=""></script>
     <meta name="generator" content="Nicepage 6.9.2, nicepage.com">
     <meta name="referrer" content="origin">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
@@ -26,7 +26,7 @@
 {% block header %}
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
 	<a href="#" class="u-image u-logo u-image-1">
-          <img src="images/default-logo.png" class="u-logo-image u-logo-image-1">
+          <img src="{% static 'courses/images/default-logo.png' %}" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
           <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -37,16 +37,24 @@
             </a>
           </div>
           <div class="u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.html" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.html" style="padding: 10px 20px;">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.html" style="padding: 10px 20px;">Contact</a>
-</li></ul>
+            <ul class="u-nav u-unstyled u-nav-1">
+                <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="padding: 10px 20px;">Home</a>
+                </li>
+                <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.html" style="padding: 10px 20px;">About</a>
+                </li>
+                <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.html" style="padding: 10px 20px;">Contact</a>
+                </li>
+            </ul>
+
           </div>
           <div class="u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.html">Contact</a>
 </li></ul>
@@ -86,19 +94,19 @@
         <div class="u-expanded-width u-list u-list-1">
           <div class="u-repeater u-repeater-1">
             <div class="u-align-center u-container-style u-custom-item u-list-item u-palette-1-base u-radius-50 u-repeater-item u-shape-round u-list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500">
-              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1"><span class="u-file-icon u-icon u-text-white u-icon-1"><img src="images/1436716-b30e0aff.png" alt=""></span>
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1"><span class="u-file-icon u-icon u-text-white u-icon-1"><img src="{% static 'courses/images/1436716-b30e0aff.png' %}" alt=""></span>
                 <h5 class="u-custom-font u-font-montserrat u-text u-text-1">Study Time</h5>
                 <p class="u-text u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
               </div>
             </div>
             <div class="u-align-center u-container-style u-custom-item u-list-item u-palette-3-base u-radius-50 u-repeater-item u-shape-round">
-              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2"><span class="u-file-icon u-icon u-text-white u-icon-2"><img src="images/3068380-d506fbfa.png" alt=""></span>
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2"><span class="u-file-icon u-icon u-text-white u-icon-2"><img src="{% static 'courses/images/3068380-d506fbfa.png' %}" alt=""></span>
                 <h5 class="u-custom-font u-font-montserrat u-text u-text-3"> Review Regularly</h5>
                 <p class="u-text u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
               </div>
             </div>
             <div class="u-align-center u-container-style u-custom-item u-list-item u-palette-1-base u-radius-50 u-repeater-item u-shape-round">
-              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3"><span class="u-file-icon u-icon u-text-white u-icon-3"><img src="images/684831-948597b6.png" alt=""></span>
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3"><span class="u-file-icon u-icon u-text-white u-icon-3"><img src="{% static 'courses/images/684831-948597b6.png' %}" alt=""></span>
                 <h5 class="u-custom-font u-font-montserrat u-text u-text-5"> Study With Friends</h5>
                 <p class="u-text u-text-6">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
               </div>
