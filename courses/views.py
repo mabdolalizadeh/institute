@@ -5,9 +5,5 @@ def index(request):
     return render(request, 'courses/index.html')
 
 
-def about(request):
-    return render(request, 'courses/about.html')
-
-
-def contact(request):
-    return render(request, 'courses/contact.html')
+def shop(request):
+    return render(request, 'courses/shop.html')
