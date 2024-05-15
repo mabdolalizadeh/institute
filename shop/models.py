@@ -8,6 +8,7 @@ class Book(models.Model):
     ages = models.CharField(max_length=100, default="All")
     level = models.CharField(max_length=100)
     price = models.IntegerField()
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return f"{self.title}-{self.category}-{self.ages}-{self.level}-{self.price}"
