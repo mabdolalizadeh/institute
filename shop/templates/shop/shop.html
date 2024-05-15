@@ -10,7 +10,7 @@
         {% for book in books %}
         	{% if book.is_active %}
         		<li>
-                    <a href="#" style="text-decoration: none; color: black">
+                    <a href="{{ book.get_absolute_url }}" style="text-decoration: none; color: black">
                         {{ book.title }} - {{ book.level }} - {{ book.price }}
                     </a>
                 </li>

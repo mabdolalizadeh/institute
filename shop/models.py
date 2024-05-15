@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+from django.utils.text import slugify
 
 
 # Create your models here.
@@ -9,6 +11,16 @@ class Book(models.Model):
     level = models.CharField(max_length=100)
     price = models.IntegerField()
     is_active = models.BooleanField(default=True)
+    slug = models.SlugField(default="", null=False)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+
+
+    def get_absolute_url(self):
+        return reverse('product', args=[self.id])
 
     def __str__(self):
         return f"{self.title}-{self.category}-{self.ages}-{self.level}-{self.price}"
