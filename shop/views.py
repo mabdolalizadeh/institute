@@ -8,6 +8,6 @@ def shop(request):
     return render(request, 'shop/shop.html', {'books': books})
 
 
-def product_detail(request, id):
-    product = get_object_or_404(Book, pk=id)
+def product_detail(request, slug):
+    product = get_object_or_404(Book, slug=slug)
     return render(request, 'shop/product.html', {'product': product})

@@ -17,10 +17,8 @@ class Book(models.Model):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
-
-
     def get_absolute_url(self):
-        return reverse('product', args=[self.id])
+        return reverse("product", kwargs={"slug": self.slug})
 
     def __str__(self):
         return f"{self.title}-{self.category}-{self.ages}-{self.level}-{self.price}"
