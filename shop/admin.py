@@ -1,5 +1,14 @@
 from django.contrib import admin
 from . import models
+
+
 # Register your models here.
 
-admin.site.register(models.Book)
+class BookAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ['title']}
+    list_display = ['title', 'price', 'level', 'is_active']
+    list_filter = ['price', 'is_active']
+    list_editable = ['is_active']
+
+
+admin.site.register(models.Book, BookAdmin)
