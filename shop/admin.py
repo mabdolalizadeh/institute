@@ -12,3 +12,7 @@ class BookAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.Book, BookAdmin)
+admin.site.register(models.Category)
+admin.site.register(models.Level)
+admin.site.register(models.Age)
+

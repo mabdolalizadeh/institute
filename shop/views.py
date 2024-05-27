@@ -4,7 +4,14 @@ from .models import Book
 
 
 def shop(request):
-    books = Book.objects.all()
+    query = request.GET.get('q')
+    all_books = request.GET.get('all')
+    if query:
+        books = Book.objects.filter(title__icontains=query)
+    else:
+        books = []
+
+
     return render(request, 'shop/shop.html', {'books': books})
 
 
