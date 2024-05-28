@@ -12,7 +12,7 @@ class BookAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'url_title': ['title']}
+    prepopulated_fields = {'slug': ['title']}
 
 
 admin.site.register(models.Book, BookAdmin)

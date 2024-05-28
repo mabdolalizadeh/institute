@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
-from .models import Book
+from .models import Book, Category
 import random
 
 
@@ -25,6 +25,20 @@ def shop(request):
     })
 
 
-def product(request, slug):
+def product_page(request, slug):
     product = get_object_or_404(Book, slug=slug)
-    return render(request, 'shop/product.html', {'product': product})
+    same_products = Book.objects.filter(category__title=product.category.title)
+    return render(request, 'shop/product.html', {
+        'product': product,
+        'same_products': same_products
+    })
+
+
+def category_detail(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    products = Book.objects.filter(category__title=category.title)
+
+    return render(request, 'shop/category.html', {
+        'category': category,
+        'products': products
+    })

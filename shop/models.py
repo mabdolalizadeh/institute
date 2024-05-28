@@ -9,6 +9,7 @@ class Tag(models.Model):
     def __str__(self):
         return self.tag
 
+
 class Type(models.Model):
     type = models.CharField(max_length=200, verbose_name="Type")
     url_type = models.CharField(max_length=200, verbose_name="URL Type")
@@ -19,7 +20,7 @@ class Type(models.Model):
 
 class Category(models.Model):
     title = models.CharField(max_length=100, verbose_name="Book Category")
-    url_title = models.CharField(max_length=100, verbose_name="URL Book Category")
+    slug = models.SlugField(max_length=100, verbose_name="Slug", null=True, blank=True)
 
     def __str__(self):
         return f"{self.title}"
