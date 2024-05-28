@@ -8,8 +8,7 @@ def shop(request):
     active = Book.objects.get(title='Evolve-full pack')
     vizheh = Book.objects.get(title='Evolve 1')
     some_book = [Book.objects.get(title='Teen2Teen-full pack'),
-                 Book.objects.get(title='Family & Friends-full pack'),
-                 Book.objects.get(title='Phonics-full pack'),]
+                 Book.objects.get(title='Family & Friends-full pack'),]
     books = Book.objects.all()
     learnings = Book.objects.filter(category__title="Learning")
     skills = Book.objects.filter(category__title='Skill')

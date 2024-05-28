@@ -54,6 +54,7 @@ class Book(models.Model):
     is_active = models.BooleanField(default=True)
     type = models.ForeignKey(Type, verbose_name="Type", on_delete=models.SET_NULL, null=True, blank=True)
     author = models.CharField(max_length=100, verbose_name="Author", null=True, blank=True)
+    image = models.CharField(max_length=200, verbose_name="Book Image", null=True, blank=True)
     slug = models.SlugField(default="", null=False)
 
     def save(self, *args, **kwargs):

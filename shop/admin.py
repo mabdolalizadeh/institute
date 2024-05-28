@@ -6,9 +6,9 @@ from . import models
 
 class BookAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ['title']}
-    list_display = ['title', 'category', 'type', 'price', 'level', 'is_active']
+    list_display = ['title', 'image', 'category', 'type', 'price', 'level', 'is_active']
     list_filter = ['price', 'is_active']
-    list_editable = ['is_active']
+    list_editable = ['is_active', 'image']
 
 
 class CategoryAdmin(admin.ModelAdmin):

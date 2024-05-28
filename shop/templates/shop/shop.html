@@ -38,8 +38,7 @@
                </div>
             </div>
          </div>
-      </div>
-      </div><!--top2-->      
+      </div><!--top2-->
       <!---------------------------------->        
       {% include 'include/navigation_bar.html' %}
       <!----------------------------------> 
@@ -61,7 +60,7 @@
                               <p>{{ active.category }} - {{ active.level }} - {{ active.age }}</p>
                            </div>
                            <div class="col-md-6">
-                              <img src="/static/img/p20lite-listimage-black.png" class="w-75" >
+                              <img src="/static/img/{{ active.image }}" class="w-75" >
                            </div>
                         </div>
                          {% for some in some_book %}
@@ -79,20 +78,20 @@
          <div class="row">
             <div class="col-md-3">
                <div class="coopen">
-                  <img src="/static/img/coopen.png" class="w-100" />
+{#                  <img src="/static/img/coopen.png" class="w-100" />#}
                </div>
             </div>
             <div class="col-md-9">
                <div class="vizheh">
                   <div class="col-md-6">
                      <div class="vizheh-img">
-                        <img src="/static/img/p20lite-listimage-black.png" class="w-100" />
+                        <img src="/static/img/{{ vizheh.image }}" class="w-100" />
                      </div>
                   </div>
                   <div class="col-md-6">
                      <div class="vizheh-content">
                         <div><del>{% widthratio vizheh.price 1 1000 %} تومان</del></div>
-                        <h4>{% widthratio vizheh.price|add:'-100' 1 1000 %} تومان</h4>
+                        <h4>{% widthratio vizheh.price|add:'-50' 1 1000 %} تومان</h4>
                         <h3>{{ vizheh.title }}</h3>
                         <ul>
                            <li>دسته‌بندی: {{ vizheh.category }}</li>
@@ -131,7 +130,7 @@
          <div class="row">
             <div class="col-md-12">
                <div class="bodybulding-baner">
-                  <a href="#"><img src="/static/img/bodybulding-baner.jpg" class="w-100" /></a>
+                  <a href="#"><img src="/static/img/novel.jpg" class="w-100" /></a>
                   <h4>کتاب‌های داستان</h4>
                </div>
             </div>
