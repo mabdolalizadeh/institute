@@ -54,14 +54,16 @@
                      </ol>
                      <div class="carousel-inner">
                         <div class="carousel-item active">
+                            <a href="{% url 'product' active.slug %}" style="text-decoration: none; color: white" target="_blank">
                            <div class="col-md-6" style="padding-top: 20px;">
                               <h4>{{ active.title }}</h4>
                               <span>{{ active.title_fa }}</span>
-                              <p>{{ active.category }} - {{ active.level }} - {{ active.age }}</p>
+                              <p>{{ active.category }} - {{ active.level }} - {{ active.age }}<br> {{ active.author }}</p>
                            </div>
                            <div class="col-md-6">
                               <img src="/static/img/{{ active.image }}" class="w-75" >
                            </div>
+                            </a>
                         </div>
                          {% for some in some_book %}
                          	{% include 'include/container.html' with book=some %}
@@ -70,42 +72,6 @@
                   </div>
                </div>
                <!--slider-box-->
-            </div>
-         </div>
-      </div>
-      <!----------------------------------> 
-      <div class="container">
-         <div class="row">
-            <div class="col-md-3">
-               <div class="coopen">
-{#                  <img src="/static/img/coopen.png" class="w-100" />#}
-               </div>
-            </div>
-            <div class="col-md-9">
-               <div class="vizheh">
-                  <div class="col-md-6">
-                     <div class="vizheh-img">
-                        <img src="/static/img/{{ vizheh.image }}" class="w-100" />
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                     <div class="vizheh-content">
-                        <div><del>{% widthratio vizheh.price 1 1000 %} تومان</del></div>
-                        <h4>{% widthratio vizheh.price|add:'-50' 1 1000 %} تومان</h4>
-                        <h3>{{ vizheh.title }}</h3>
-                        <ul>
-                           <li>دسته‌بندی: {{ vizheh.category }}</li>
-                           <li>ناشر یا نویسنده: {{ vizheh.author }}</li>
-                        </ul>
-                        <hr>
-                        <span>زمان باقیمانده تا پایان سفارش</span> 
-                        <div class="counter" data-minutes-left="1000"></div>
-                     </div>
-                  </div>
-                  <div class="vizheh-tag">
-                     <span>فرصت ویژه</span>
-                  </div>
-               </div>
             </div>
          </div>
       </div>
@@ -119,7 +85,6 @@
                       {% for learning in learnings %}
                       	{% include 'include/down_container.html' with book=learning %}
                       {% endfor %}
-
                   </div>
                </div>
             </div>

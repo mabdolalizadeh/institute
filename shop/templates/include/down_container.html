@@ -1,6 +1,6 @@
 <div class="item">
     <figure>
-        <a href=""><img src="/static/img/{{ book.image }}" class="w-100" /></a>
+        <a href="{% url 'product' book.slug %}" target="_blank"><img src="/static/img/{{ book.image }}" class="w-100" /></a>
     </figure>
     <h5>{{ book.title }}</h5>
     <span>{% widthratio book.price 1 1000 %} تومان</span>
