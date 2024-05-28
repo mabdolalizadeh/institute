@@ -32,6 +32,7 @@ class Level(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
+    title_fa = models.CharField(max_length=100, verbose_name="Book Title", null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     age = models.ForeignKey(Age, on_delete=models.CASCADE, null=True, blank=True)
     level = models.ForeignKey(Level, on_delete=models.CASCADE, null=True, blank=True)

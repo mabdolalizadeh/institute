@@ -2,7 +2,7 @@
 <html>
    <head>
       <meta charset="utf-8">
-      <title>Easy Shop</title>
+      <title>{{ product.title }}</title>
       <link href="/static/style/font-awesome.css" rel="stylesheet" type="text/css">
       <link href="/static/style/bootstrap.css" rel="stylesheet" type="text/css">
       <link href="/static/style/owl.carousel.css" rel="stylesheet" type="text/css">
@@ -42,41 +42,7 @@
       </div>
       </div><!--top2-->      
       <!---------------------------------->        
-      <div class="main-menu">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <ul>
-                     <li>
-                        <a href="#">کالای دیجیتال</a>
-                        <ul>
-                           <li><a href="#">گوشی موبایل</a></li>
-                           <li><a href="#">تبلت</a></li>
-                           <li><a href="#">لپ تاپ</a></li>
-                           <li><a href="#">نمایشگر</a></li>
-                           <li><a href="#">دوربین عکاسی</a></li>
-                           <li><a href="#">لوازم جانبی رایانه</a></li>
-                           <li><a href="#">لوازم جانبی موبایل</a></li>
-                           <li><a href="#">سایر</a></li>
-                        </ul>
-                     </li>
-                     <li><a href="#">آرایشی و بهداشتی</a></li>
-                     <li>
-                        <a href="#">مد و پوشاک</a>
-                        <ul>
-                           <li><a href="#">لباس فصل</a></li>
-                           <li><a href="#">ساعت  مچی</a></li>
-                           <li><a href="#">بدلیجات</a></li>
-                        </ul>
-                     </li>
-                     <li><a href="#">خانه و آشپزخانه</a></li>
-                     <li><a href="#">ابزار اداری</a></li>
-                     <li><a href="#">اسباب بازی</a></li>
-                  </ul>
-               </div>
-            </div>
-         </div>
-      </div>
+      {% include 'include/navigation_bar.html' %}
       <!---------------------------------->  
       <div class="container">
          <div class="row">
@@ -84,42 +50,28 @@
                <div class="single-box">
                   <div class="row">
                      <div class="col-md-7">
-                        <h5>Huawei Tab Y300G2</h5>
-                        <h6>تبلت هوآوی 10 اینچ فورجی</h6>
+                        <h5>{{ product.title }}</h5>
+                        <h6>{{ product.title_fa }}</h6>
                         <hr>
                         <div class="row">
                            <div class="col-md-7">
                               <div class="single-content-right">
                                  <ul class="brand-ul">
-                                    <li>برند : <a href="#">هوآوی</a></li>
-                                    <li>دسته بندی : <a href="#">موبایل و تبلت</a></li>
+                                    <li>سطح : <a href="#">{{ product.level }}</a></li>
+                                    <li>دسته بندی : <a href="#">{{ product.category }}</a></li>
+                                     <li>رده سنی  : <a href="#">{{ product.age }}</a></li>
                                  </ul>
                                  <br>
-                                 <span>مشخصات مختصر محصول :</span><br>
-                                 <ul class="product-ul">
-                                    <li></li>
-                                    <li>اندازه نمایشگر 10 اینچ</li>
-                                    <li>دارای شبکه 4G</li>
-                                    <li>دارای دو سیم کارت</li>
-                                    <li>حافظه داخلی 32G</li>
-                                    <li>دارای بدنه فلزی در عین حال سبک</li>
-                                    <li>درای تنوع رنگ</li>
-                                 </ul>
                               </div>
                            </div>
                            <div class="col-md-5">
                               <div class="single-content-left">
                                  <ul>
-                                    <span>وضعیت : موجود در انبار</span><br><br>
-                                    <li>گارانتی : Huawei</li>
-                                    <br>
-                                    <li>
-                                       رنگ بندی : 
-                                       <ul>
-                                          <li><i class="fa fa-square white"></i>سفید</li>
-                                          <li><i class="fa fa-square black"></i>مشکی</li>
-                                          <li><i class="fa fa-square silver"></i>نقره ای</li>
-                                          <li><i class="fa fa-square gold"></i>طلایی</li>
+                                    <span>وضعیت :{% if product.is_active %}
+                                    	موجود در انبار
+                                        {% else %}
+                                        ناموجود
+                                    {% endif %} </span><br><br>
                                        </ul>
                                     </li>
                                  </ul>
@@ -127,7 +79,7 @@
                            </div>
                         </div>
                         <hr>
-                        <h3>85000 تومان</h3>
+                        <h3>{% widthratio product.price 1 1000 %} تومان</h3>
                         <div  class="btn-single">
                            <a href="#"><i class="fa fa-cart-plus"></i>خرید آنلاین</a>
                         </div>
@@ -137,25 +89,6 @@
                            <figure>
                               <img src="/static/img/single-tablet.jpg" class="w-100 s-img" data-zoom-image="/static/img/single-tablet.jpg">
                            </figure>
-                        </div>
-                        <div class="single-img-slider">
-                           <div class="owl-carousel owl-theme ov-single">
-                              <div class="item">
-                                 <a data-fancybox="gallery"  href="/static/img/single-tablet.jpg"><img src="/static/img/single-tablet.jpg" class="w-100"></a>
-                              </div>
-                              <div class="item">
-                                 <a data-fancybox="gallery"  href="/static/img/single-tablet.jpg"><img src="/static/img/single-tablet.jpg" class="w-100"></a>
-                              </div>
-                              <div class="item">
-                                 <a data-fancybox="gallery"  href="/static/img/single-tablet.jpg"><img src="/static/img/single-tablet.jpg" class="w-100"></a>
-                              </div>
-                              <div class="item">
-                                 <a data-fancybox="gallery"  href="/static/img/single-tablet.jpg"><img src="/static/img/single-tablet.jpg" class="w-100"></a>
-                              </div>
-                              <div class="item">
-                                 <a data-fancybox="gallery"  href="/static/img/single-tablet.jpg"><img src="/static/img/single-tablet.jpg" class="w-100"></a>
-                              </div>
-                           </div>
                         </div>
                      </div>
                   </div>
