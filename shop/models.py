@@ -3,12 +3,26 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 
+class Tag(models.Model):
+    tag = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.tag
+
+class Type(models.Model):
+    type = models.CharField(max_length=200, verbose_name="Type")
+    url_type = models.CharField(max_length=200, verbose_name="URL Type")
+
+    def __str__(self):
+        return self.type
+
+
 class Category(models.Model):
     title = models.CharField(max_length=100, verbose_name="Book Category")
     url_title = models.CharField(max_length=100, verbose_name="URL Book Category")
 
     def __str__(self):
-        return self.title
+        return f"{self.title}"
 
     class Meta:
         verbose_name_plural = "Categories"
@@ -33,11 +47,13 @@ class Level(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=100)
     title_fa = models.CharField(max_length=100, verbose_name="Book Title", null=True, blank=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
-    age = models.ForeignKey(Age, on_delete=models.CASCADE, null=True, blank=True)
-    level = models.ForeignKey(Level, on_delete=models.CASCADE, null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
+    age = models.ForeignKey(Age, on_delete=models.SET_NULL, null=True, blank=True)
+    level = models.ForeignKey(Level, on_delete=models.SET_NULL, null=True, blank=True)
     price = models.IntegerField()
     is_active = models.BooleanField(default=True)
+    type = models.ForeignKey(Type, verbose_name="Type", on_delete=models.SET_NULL, null=True, blank=True)
+    author = models.CharField(max_length=100, verbose_name="Author", null=True, blank=True)
     slug = models.SlugField(default="", null=False)
 
     def save(self, *args, **kwargs):
