@@ -4,17 +4,8 @@ from .models import Book
 
 
 def shop(request):
-    query = request.GET.get('q')
-    all_books = request.GET.get('all')
-    if query:
-        books = Book.objects.filter(title__icontains=query)
-    else:
-        books = []
-
-
-    return render(request, 'shop/shop.html', {'books': books})
-
-
-def product_detail(request, slug):
-    product = get_object_or_404(Book, slug=slug)
-    return render(request, 'shop/product.html', {'product': product})
+    books = Book.objects.all()
+    return render(request, 'shop/shop.html', {
+        'books': books,
+        'counter': 0
+    })
