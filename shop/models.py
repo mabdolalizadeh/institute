@@ -5,6 +5,7 @@ from django.utils.text import slugify
 
 class Tag(models.Model):
     tag = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, verbose_name="Slug", null=True, blank=True)
 
     def __str__(self):
         return self.tag
@@ -12,7 +13,7 @@ class Tag(models.Model):
 
 class Type(models.Model):
     type = models.CharField(max_length=200, verbose_name="Type")
-    url_type = models.CharField(max_length=200, verbose_name="URL Type")
+    slug = models.SlugField(max_length=200, verbose_name="Slug", null=True, blank=True)
 
     def __str__(self):
         return self.type
@@ -31,7 +32,7 @@ class Category(models.Model):
 
 class Age(models.Model):
     title = models.CharField(max_length=100, verbose_name="Book Age")
-    url_title = models.CharField(max_length=100, verbose_name="URL Book Age")
+    slug = models.SlugField(max_length=100, verbose_name="Slug", null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -39,7 +40,7 @@ class Age(models.Model):
 
 class Level(models.Model):
     title = models.CharField(max_length=100, verbose_name="Book Level")
-    url_title = models.CharField(max_length=100, verbose_name="URL Book Level")
+    slug = models.SlugField(max_length=100, verbose_name="Slug", null=True, blank=True)
 
     def __str__(self):
         return self.title

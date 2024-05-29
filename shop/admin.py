@@ -15,8 +15,20 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ['title']}
 
 
+class AgeAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ['title']}
+
+
+class LevelAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ['title']}
+
+
+class TypeAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ['title']}
+
+
 admin.site.register(models.Book, BookAdmin)
 admin.site.register(models.Category, CategoryAdmin)
-admin.site.register(models.Level)
-admin.site.register(models.Age)
+admin.site.register(models.Level, LevelAdmin)
+admin.site.register(models.Age, AgeAdmin)
 admin.site.register(models.Type)

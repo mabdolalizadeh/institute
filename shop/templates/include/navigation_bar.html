@@ -7,23 +7,23 @@
                      <li>
                         <a href="{% url 'category' 'learning' %}">کتاب زبان ترمیک</a>
                         <ul>
-                           <li><a href="#">رده سنی بزرگسالان</a></li>
-                           <li><a href="#">رده سنی نوجوانان</a></li>
-                           <li><a href="#">رده سنی کودکان</a></li>
-                           <li><a href="#">رده سنی مهدکودک</a></li>
+                           <li><a href="{% url 'category' 'adults'%}">رده سنی بزرگسالان</a></li>
+                           <li><a href="{% url 'category' 'teenagers' %}">رده سنی نوجوانان</a></li>
+                           <li><a href="{% url 'category' 'kids' %}">رده سنی کودکان</a></li>
+                           <li><a href="{% url 'category' 'nursery' %}">رده سنی مهدکودک</a></li>
                         </ul>
                      </li>
                       <li>
-                        <a href="#">کتاب زبان مهارتی</a>
+                        <a href="{% url 'category' 'skill' %}">کتاب زبان مهارتی</a>
                         <ul>
-                           <li><a href="#">Listening</a></li>
-                           <li><a href="#">Reading</a></li>
-                           <li><a href="#">Writing</a></li>
-                            <li><a href="#">Grammar</a></li>
-                            <li><a href="#">Vocabulary</a></li>
+                           <li><a href="{% url 'category' 'listening' %}">Listening</a></li>
+                           <li><a href="{% url 'category' 'reading' %}">Reading</a></li>
+                           <li><a href="{% url 'category' 'writing' %}">Writing</a></li>
+                            <li><a href="{% url 'category' 'grammar' %}">Grammar</a></li>
+                            <li><a href="{% url 'category' 'vocabulary' %}">Vocabulary</a></li>
                         </ul>
                      </li>
-                     <li><a href="#">کتاب داستان انگلیسی</a></li>
+                     <li><a href="{% url 'category' 'story' %}">کتاب داستان انگلیسی</a></li>
                      </li>
                   </ul>
                </div>
