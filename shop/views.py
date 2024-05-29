@@ -61,7 +61,7 @@ def category_detail(request, slug):
         products = Book.objects.filter(type__type=category.type)
     elif slug in age_list:
         category = get_object_or_404(Age, slug=slug)
-        products = Book.objects.filter(age__title=category.title)
+        products = Book.objects.filter(age__title=category.title )
     else:
         raise Http404
 
