@@ -96,7 +96,7 @@ position:relative;
 .top2 form input{
     width: 80%;
     background-color: #fdfdfd;
-    color: 000;
+    color: black;
     border: none;
     padding-right: 10px;
     height: 40px;
@@ -215,7 +215,7 @@ min-height:200px;
 color:#fff;
 padding:20px;
 text-align:center;
-background:url(../img/slider-cover.jpg);
+background:url(/shop/static/img/slider-cover.jpg);
 background-size:cover;
 position:relative;	
 margin-bottom:40px;
@@ -809,7 +809,7 @@ font-size:12px;
 color:#FC9492;
 }
 
-.single-box ..single-content-right .product-ul span:before {
+.single-box .single-content-right .product-ul span:before {
 content: "\f2d9";
 font-family:'FontAwesome';
 padding-left:10px;

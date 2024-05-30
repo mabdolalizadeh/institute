@@ -61,7 +61,7 @@
                               <p>{{ active.category }} - {{ active.level }} - {{ active.age }}<br> {{ active.author }}</p>
                            </div>
                            <div class="col-md-6">
-                              <img src="/static/img/{{ active.image }}" class="w-75" >
+                              <img src="/static/img/{{ active.image }}" class="w-75"  alt="">
                            </div>
                             </a>
                         </div>
@@ -95,7 +95,7 @@
          <div class="row">
             <div class="col-md-12">
                <div class="bodybulding-baner">
-                  <a href="#"><img src="/static/img/novel.jpg" class="w-100" /></a>
+                  <a href="{% url 'category' 'story' %}"><img src="/static/img/novel.jpg" class="w-100" /></a>
                   <h4>کتاب‌های داستان</h4>
                </div>
             </div>
