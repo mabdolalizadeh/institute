@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <title>Sha'af | login</title>
+
+      <link rel="stylesheet" href="{% static 'registration/style.css' %}" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <section class="wrapper">
+      <div class="form signup">
+        <header>ثبت نام</header>
+        <form action="#">
+          <input type="text" placeholder="اسمتون..." required />
+          <input type="text" placeholder="ایمیل بی‌زحمت..." required />
+          <input type="password" placeholder="یه رمز خوبم انتخاب کنید..." required />
+          <div class="checkbox">
+            <input type="checkbox" id="signupCheck" />
+            <label for="signupCheck">قوانینو قبول دارم.</label>
+          </div>
+          <input type="submit" value="ثبت نامم کن" />
+        </form>
+      </div>
+
+      <div class="form login">
+        <header>ورود</header>
+        <form action="#">
+          <input type="text" placeholder="ایمیلتون..." required />
+          <input type="password" placeholder="رمزتون..." required />
+          <a href="#">رمز یادت نیست؟</a>
+          <input type="submit" value="بزن بریم..." />
+        </form>
+      </div>
+
+      <script>
+        const wrapper = document.querySelector(".wrapper"),
+          signupHeader = document.querySelector(".signup header"),
+          loginHeader = document.querySelector(".login header");
+
+        loginHeader.addEventListener("click", () => {
+          wrapper.classList.add("active");
+        });
+        signupHeader.addEventListener("click", () => {
+          wrapper.classList.remove("active");
+        });
+      </script>
+    </section>
+  </body>
+</html>
