@@ -2,11 +2,12 @@
 
 {% block title %}SHA'AF{% endblock %}
 {% block style %}
+    <link rel="stylesheet" href="/static/style_shop.css">
     <style>
     .shop {
         height:3.5rem;
         width:17rem;
-        background:var(--orange);
+        background:var(--blue);
         color:#fff;
         border:none;
         border-radius: 5rem;
@@ -16,10 +17,96 @@
         transition: .2s;
         text-align: center;
     }
+
     .shop:hover {
         letter-spacing: .2rem;
-  opacity: .8;
+        background: rgba(0,0,0,0);
+        color: var(--blue);
+        border: .2rem solid var(--blue);
+        opacity: .8;
     }
+
+{#    .footer {#}
+{#width:100%;#}
+{#padding:10px;#}
+{#background-color: #efeeee;#}
+{#background-size: contain;#}
+{#background-position: center center;#}
+{#background-repeat: no-repeat;#}
+{#line-height: 2;#}
+{##}
+{#.footer .footer-description , .footer .footer-description2 ,.footer .footer-description3{#}
+{#width:100%;#}
+{#padding:10px;#}
+{##}
+{#.footer .footer-description h4,.footer-description2 h4 , .footer .footer-description3 h4{#}
+{#display:table;#}
+{#color: #b3afaf;#}
+{#padding:10px;#}
+{#font-size:18px;#}
+{##}
+{#.footer .footer-description h5{#}
+{#padding:10px;#}
+{#color:#868686;#}
+{##}
+{#.footer .footer-description ul li,.footer .footer-description2 ul li{#}
+{#color:#868686;#}
+{#font-size:13px;#}
+{##}
+{#.footer .footer-description ul li:before{#}
+{#content: "\f00c";#}
+{#    font-family: "FontAwesome", serif;#}
+{#padding-left: 5px;#}
+{#font-size: 10px;#}
+{#color: #a9abaa;#}
+{#.footer .footer-description2 ul li i{#}
+{#    padding-left: 5px;#}
+{#    font-size: 12px;#}
+{#    color: #a9abaa;#}
+{##}
+{#/*-----------------------------*/#}
+{#.news-form{#}
+{#width:100%;#}
+{#min-height:50px;#}
+{#margin-bottom:20px;#}
+{##}
+{#.news-form h5{#}
+{#    width: 100%;#}
+{#    text-align: center;#}
+{#    padding: 10px;#}
+{#    margin: 0;#}
+{#    color: #d0cccc;#}
+{#    font-size: 14px !important;#}
+{#.news-form form{#}
+{#position:relative;#}
+{#.news-form form input{#}
+{#    width: 100%;#}
+{#    height: 43px;#}
+{#    border: none;#}
+{#    outline: none;#}
+{#    padding: 5px;#}
+{#    background: #bfbcbc;#}
+{#    color: #403b3b;#}
+{##}
+{#.news-form form button{#}
+{#position:absolute;#}
+{#height:43px;#}
+{#top:0;#}
+{#left:0;#}
+{#border:none;#}
+{#background: #bfbcbc;#}
+{#color:#fff;#}
+{#font-size:18px;#}
+{#padding:5px;#}
+{#cursor:pointer;#}
+{##}
+{#.copy-right{#}
+{#width:100%;#}
+{#padding:20px;#}
+{#color:#888;#}
+{#background-color: #efeeee;#}
+{#text-align:center;#}
+
     </style>
 {% endblock %}
 {% block content %}
@@ -136,4 +223,52 @@
 </section>
 
 <!-- course section ends -->
+    <!-- contact section starts  -->
+   <div class="footer">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                  <div class="footer-description">
+                     <ul>
+                        <li>امکان پرداخت آنلاین با کارت بانکی و پرداخت در آموزشگاه</li>
+                        <li>خرید آسان و مطمئن</li>
+                        <li>قیمت های مناسب</li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="footer-description2">
+                     <ul>
+                        <li><i class="fa fa-pencil"></i>آموزشی دل‌انگیز</li>
+                        <li><i class="fa fa-home"></i>محیط آموزشی مناسب</li>
+                        <li><i class="fa fa-money"></i>کمترین هزینه در منطقه</li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div class="news-form">
+                     <h5>در خبرنامه عضو شوید</h5>
+                     <form action="" >
+                         <label>
+                             <input type="email" placeholder="ایمیل خود را وارد کنید" >
+                         </label>
+                         <button type="submit" ><i class="fa fa-envelope-o"></i></button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!---------------------------------->
+      <div class="copy-right">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 text-center">
+                  &copy;&nbsp;&nbsp;آموزشگاه زبان شعف&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span>www.shaaf.ir</span>
+               </div>
+            </div>
+         </div>
+      </div>
+<!-- contact section ends -->
 {% endblock %}

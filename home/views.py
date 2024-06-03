@@ -10,3 +10,7 @@ def home(request):
         "shop_elements": shop_elements,
         "courses": courses,
     })
+
+
+def contact_us(request):
+    return render(request, 'home/contact_us.html')
