@@ -8,7 +8,7 @@ direction:rtl;
 text-align:right;
 margin:0;
 padding:0;
-font-family: 'Vazir',tahoma;
+    font-family: 'Vazir', tahoma, serif;
 font-size:13px;
 }
 
@@ -215,7 +215,7 @@ min-height:200px;
 color:#fff;
 padding:20px;
 text-align:center;
-background:url(/shop/static/img/slider-cover.jpg);
+background:url(../img/slider-cover.jpg);
 background-size:cover;
 position:relative;	
 margin-bottom:40px;
@@ -811,7 +811,7 @@ color:#FC9492;
 
 .single-box .single-content-right .product-ul span:before {
 content: "\f2d9";
-font-family:'FontAwesome';
+    font-family: 'FontAwesome', serif;
 padding-left:10px;
 }
 
