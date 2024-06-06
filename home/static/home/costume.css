@@ -1,0 +1,7 @@
+.contact .row .form-container li {
+    list-style: none;
+    color: var(--orange);
+    font-size: 1.3rem;
+    font-weight: bolder;
+    padding-right: 1rem;
+}

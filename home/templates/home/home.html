@@ -12,6 +12,7 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    <link rel="stylesheet" href="{% static 'home/costume.css' %}">
     
     <style>
     .shop, .form-button {
@@ -193,7 +194,11 @@
     <div class="form-container">
         <form action="" method="post" name="contact-us">
             {% csrf_token %}
-            {{ form }}
+            {% for field in form %}
+            	{{ field }}
+                {{ field.errors }}
+            {% endfor %}
+            
             <button type="submit" class="form-button">ارسال</button>
             
         </form>

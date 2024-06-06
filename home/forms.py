@@ -19,3 +19,21 @@ class SimpleSignupModelForm(forms.ModelForm):
             'phone': '',
             'text': '',
         }
+        error_messages = {
+            'name': {
+                'required': 'این مهمه. حتما پرش کن',
+                'invalid': 'تو نوشتن اسمت یه اشتباهی کردی یه چک بکن'
+            },
+            'email': {
+                'required': 'این مهمه. حتما پرش کن',
+                'invalid': 'تو نوشتن ایمیلت یه اشتباهی کردی یه چک بکن'
+            },
+            'phone': {
+                'required': 'این مهمه. حتما پرش کن',
+                'invalid': 'تو نوشتن شماره‌ت یه اشتباهی کردی یه چک بکن'
+            },
+            'text': {
+                'required': 'این مهمه. حتما پرش کن',
+                'invalid': 'تو نوشتن متنت یه اشتباهی کردی یه چک بکن'
+            }
+        }
