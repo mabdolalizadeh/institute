@@ -16,5 +16,9 @@ class SignupInHome(models.Model):
     text = models.TextField()
     is_checked = models.BooleanField(default=False)
 
+    class Meta:
+        verbose_name = 'simple registration\'s name'
+        verbose_name_plural = 'simple registrations\' name'
+
     def __str__(self):
         return f'{self.name}-{self.phone}-{self.is_checked}'
