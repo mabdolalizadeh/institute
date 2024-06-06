@@ -7,7 +7,7 @@ from .forms import SimpleSignupModelForm
 def home(request):
     courses = Course.objects.all()
     shop_elements = Book.objects.all().filter(category__title="Learning").order_by("-id")[:4]
-    if request.method is "POST":
+    if request.method == "POST":
         form = SimpleSignupModelForm(request.POST)
         if form.is_valid():
             form.save()
