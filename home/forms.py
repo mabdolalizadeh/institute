@@ -1,4 +1,21 @@
 from django import forms
+from .models import SignupInHome
 
-class ContactForm(forms.Form):
-    name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+class SignupInHomeModelForm(forms.ModelForm):
+    class Meta:
+        model = SignupInHome
+        fields = ['name', 'email', 'phone', 'text']
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'اسمتون...'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'ایمیل‌تون...'}),
+            'phone': forms.NumberInput(attrs={'placeholder': 'شماره‌تون...'}),
+            'text': forms.Textarea(
+                attrs={'placeholder': 'یه کم توضیح میدی راجع به اینکه قبلا زبان کار کردی یا نه؟...'}),
+        }
+        labels = {
+            'name': '',
+            'email': '',
+            'phone': '',
+            'text': '',
+        }

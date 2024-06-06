@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'home/style.css' %}">
     
     <style>
-    .shop {
+    .shop, .form-button {
         height:3.5rem;
         width:17rem;
         background:var(--blue);
@@ -28,7 +28,7 @@
         text-align: center;
     }
 
-    .shop:hover {
+    .shop:hover, .form-button:hover {
         letter-spacing: .2rem;
         background: rgba(0,0,0,0);
         color: var(--blue);
@@ -53,6 +53,7 @@
         <li><a href="#about">درباره ما</a></li>
         <li><a href="#teacher">فروشگاه</a></li>
         <li><a href="#course">دوره‌ها</a></li>
+        <li><a href="#sign">ثبت نام</a></li>
     </ul>
 </nav>
 
@@ -62,13 +63,13 @@
 
 <!-- header section ends -->
 
-{% block content %}
+
 <section class="home" id="home">
 
 <div class="content">
     <h1>آموزشگاه زبان شعف</h1>
     <p>بهترین راه یادگیری زبان</p>
-    <a href="{% url 'register' %}" target="_blank"><button>ثبت نام کنید</button></a>
+    <a href="#sign"><button>ثبت نام کنید</button></a>
 </div>
 
 <div class="box-container">
@@ -81,8 +82,8 @@
 
     <div class="box">
         <i class="fas fa-fire-alt"></i>
-        <h3>امتحان رایگان</h3>
-        <p>روی دکمه ثبت نام کلیک کن تا یه آزمون تعیین سطح رایگان مهمون ما باشی</p>
+        <h3>به‌صرفه‌ترین منطقه</h3>
+        <p>شک نکن تو کل تهرانسر جایی به‌صرفه تر از اینجا نیست</p>
     </div>
 
     <div class="box">
@@ -135,7 +136,7 @@
     {% for shop_element in shop_elements %}
 
         <a href="{% url 'product' shop_element.slug %}" target="_blank"><div class="card">
-        <img src="/static/img/{{ shop_element.image }}" alt="">
+        <img src="{% static 'shop/img/'|add:shop_element.image %}" alt="">
         <h3>{{ shop_element.title }}</h3>
         <p>{{ shop_element.title_fa}}</p>
         <p>{% widthratio shop_element.price 1 1000 %} تومان</p>
@@ -177,57 +178,11 @@
 
 <!-- course section ends -->
     <!-- contact section starts  -->
-{#   <div class="footer">#}
-{#         <div class="container">#}
-{#            <div class="row">#}
-{#               <div class="col-md-5">#}
-{#                  <div class="footer-description">#}
-{#                     <ul>#}
-{#                        <li>امکان پرداخت آنلاین با کارت بانکی و پرداخت در آموزشگاه</li>#}
-{#                        <li>خرید آسان و مطمئن</li>#}
-{#                        <li>قیمت های مناسب</li>#}
-{#                     </ul>#}
-{#                  </div>#}
-{#               </div>#}
-{#               <div class="col-md-4">#}
-{#                  <div class="footer-description2">#}
-{#                     <ul>#}
-{#                        <li><i class="fa fa-pencil"></i>آموزشی دل‌انگیز</li>#}
-{#                        <li><i class="fa fa-home"></i>محیط آموزشی مناسب</li>#}
-{#                        <li><i class="fa fa-money"></i>کمترین هزینه در منطقه</li>#}
-{#                     </ul>#}
-{#                  </div>#}
-{#               </div>#}
-{#               <div class="col-md-3">#}
-{#                  <div class="news-form">#}
-{#                     <h5>در خبرنامه عضو شوید</h5>#}
-{#                     <form action="" >#}
-{#                         <label>#}
-{#                             <input type="email" placeholder="ایمیل خود را وارد کنید" >#}
-{#                         </label>#}
-{#                         <button type="submit" ><i class="fa fa-envelope-o"></i></button>#}
-{#                     </form>#}
-{#                  </div>#}
-{#               </div>#}
-{#            </div>#}
-{#         </div>#}
-{#      </div>#}
-{#      <!---------------------------------->#}
-{#      <div class="copy-right">#}
-{#         <div class="container">#}
-{#            <div class="row">#}
-{#               <div class="col-md-12 text-center">#}
-{#                  &copy;&nbsp;&nbsp;آموزشگاه زبان شعف&nbsp;&nbsp;&nbsp;&nbsp;#}
-{#                  <span>www.shaaf.ir</span>#}
-{#               </div>#}
-{#            </div>#}
-{#         </div>#}
-{#      </div>#}
     
-    <section class="contact" id="contact">
+    <section class="contact" id="sign">
 
-<h1 class="heading">تماس با ما</h1>
-<h3 class="title">اگه سوالی داری که ما یادمون رفته راجع بهش توضیح بدیم، خوشحال میشیم ازمون بپرسی :)</h3>
+<h1 class="heading">ثبت نام</h1>
+<h3 class="title">امیدوارم تونسته باشیم نظرتون رو بابت آموزشگاه خودمون جلب کنیم. اگر دوست داری تو شعف ثبت نام کنی، یه پیام برامون بفرست که تو سریع ترین زمان ممکن باهات تماس بگیریم ;)</h3>
 
 <div class="row">
 
@@ -238,27 +193,25 @@
     <div class="form-container">
         <form action="" method="post" name="contact-us">
             {% csrf_token %}
-            <input type="text" placeholder="اسمتون..." name="name">
-            <input type="email" placeholder="ایمیل‌تون..." name="email">
-            <input type="number" placeholder="تلفن‌تون..." name="phone">
-            <textarea name="text" id="" cols="30" rows="10" placeholder="پیامتون..."></textarea>
-            <button type="submit">ارسال</button>
+            {{ form }}
+            <button type="submit" class="form-button">ارسال</button>
+            
         </form>
     </div>
 
 </div>
-
+<p class="title" style="padding-bottom: 1rem">آموزشگاه شعف <br>تهرانسر، بلوار یاس، خیابان فجر، جنب میدان</p>
 </section>
 
 <!-- contact section ends -->
-{% endblock %}
+
 
 
 <!-- jquery cdn link  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- custom js file link  -->
-<script src="/static/main.js"></script>
+<script src="{% static 'home/main.js' %}"></script>
 
     
 </body>
