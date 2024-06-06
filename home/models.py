@@ -9,7 +9,7 @@ class Course(models.Model):
         return self.name
 
 
-class SignupInHome(models.Model):
+class SimpleSignup(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     phone = models.CharField(max_length=100)

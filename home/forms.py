@@ -1,10 +1,10 @@
 from django import forms
-from .models import SignupInHome
+from .models import SimpleSignup
 
 
-class SignupInHomeModelForm(forms.ModelForm):
+class SimpleSignupModelForm(forms.ModelForm):
     class Meta:
-        model = SignupInHome
+        model = SimpleSignup
         fields = ['name', 'email', 'phone', 'text']
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'اسمتون...'}),
