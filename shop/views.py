@@ -1,5 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from .models import *
 
@@ -84,4 +85,7 @@ class CategoryView(TemplateView):
         return context
 
 
-
+# class CategoryView(ListView):
+#     template_name = 'shop/category.html'
+#     model = Book
+#     context_object_name = 'products'

@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} 
 
 <!DOCTYPE html>
 <html lang="fa">
@@ -11,7 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    {% if messages %}
+        <link rel="stylesheet" href="{% static 'home/success.css' %}">
+        {% else %}
+        <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    {% endif %} 
     <link rel="stylesheet" href="{% static 'home/costume.css' %}">
     
     <style>
@@ -68,9 +72,17 @@
 <section class="home" id="home">
 
 <div class="content">
-    <h1>آموزشگاه زبان شعف</h1>
-    <p>بهترین راه یادگیری زبان</p>
-    <a href="#sign"><button>ثبت نام کنید</button></a>
+    
+    {% if messages %}
+        <h1>ورود شما رو به جمع شعف خوش‌آمد میگیم</h1>
+    	<p>بزودی از طرف شعف با شما تماس گرفته میشه</p>
+        <button>ثبت نام شدید:))</button>
+        {% else %}
+        <h1>آموزشگاه زبان شعف</h1>
+        <p>بهترین راه یادگیری زبان</p>
+        <a href="#sign"><button>ثبت نام کنید</button></a>
+    {% endif %} 
+
 </div>
 
 <div class="box-container">
