@@ -5,11 +5,7 @@
    <head>
       <meta charset="utf-8">
       <title>Sha'af Shop</title>
-      <link href="{% static 'shop/style/font-awesome.css' %}" rel="stylesheet" type="text/css">
-      <link href="{% static 'shop/style/bootstrap.css' %}" rel="stylesheet" type="text/css">
-      <link href="{% static 'shop/style/owl.carousel.css' %}" rel="stylesheet" type="text/css">
-      <link href="{% static 'shop/style/owl.theme.default.css' %}" rel="stylesheet" type="text/css">
-      <link href="{% static 'shop/style/style.css' %}" rel="stylesheet" type="text/css">
+      {% include 'include/styles.html' %}
        <script src="https://kit.fontawesome.com/e1acd0cb90.js" crossorigin="anonymous"></script>
    </head>
    <body>
@@ -121,10 +117,6 @@
       <!---------------------------------->
         {% include 'include/footer.html' %}
       <!----------------------------------> 
-      <script src="{% static 'shop/js/jquery-3.3.1.js' %}" type="text/javascript"></script>
-      <script src="{% static 'shop/js/jquery.simple.timer.js' %}" type="text/javascript"></script>
-      <script src="{% static 'shop/js/jquery.elevatezoom.js' %}" type="text/javascript"></script>
-      <script src="{% static 'shop/js/owl.carousel.min.js' %}" type="text/javascript"></script>
-      <script src="{% static 'shop/js/js.js' %}" type="text/javascript"></script>
+      {% include 'include/scripts.html' %}
    </body>
 </html>
