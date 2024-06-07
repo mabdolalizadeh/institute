@@ -14,6 +14,7 @@ class SimpleSignup(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=100)
     text = models.TextField()
+    date = models.DateField(auto_now_add=True)
     is_checked = models.BooleanField(default=False)
 
     class Meta:
