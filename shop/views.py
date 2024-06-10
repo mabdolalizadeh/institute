@@ -7,15 +7,8 @@ from .models import *
 class ShopView(TemplateView):
     template_name = 'shop/shop.html'
 
-    def get(self, request, *args, **kwargs):
-        item_searched = request.GET.get('search')
-        items = Book.objects.all().filter(name__icontains=item_searched)
-        return render(request, 'shop/search.html', {
-            'items': items,
-            'item_searched': item_searched,
-        })
-
     def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         active = Book.objects.get(title='Evolve-full pack')
         some_book = [Book.objects.get(title='Teen2Teen-full pack'),
                      Book.objects.get(title='Family & Friends-full pack'), ]
@@ -23,7 +16,6 @@ class ShopView(TemplateView):
         learnings = Book.objects.filter(category__title="Learning")
         skills = Book.objects.filter(category__title='Skill')
         stories = Book.objects.filter(category__title='Story')
-        context = super().get_context_data(**kwargs)
         context['books'] = books
         context['learnings'] = learnings
         context['skills'] = skills
@@ -90,4 +82,3 @@ class CategoryView(TemplateView):
         context['category'] = category
 
         return context
-
