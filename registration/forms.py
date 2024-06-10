@@ -10,7 +10,7 @@ class RegistrationForm(forms.ModelForm):
         widgets = {
             'full_name': forms.TextInput(attrs={'placeholder': 'اسمتون...'}),
             'phone_number': forms.NumberInput(attrs={'placeholder': 'شماره‌تون...'}),
-            'password': forms.PasswordInput(attrs={'placeholder': 'یه رمز خوب هم انتخاب کن...'}),
+            'password': forms.PasswordInput(attrs={'placeholder': 'رمزتون...'}),
         }
         labels = {
             'full_name': '',

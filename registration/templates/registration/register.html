@@ -37,9 +37,9 @@
 
       <div class="form login">
         <header>ورود</header>
-        <form action="#">
-          <input type="text" placeholder="ایمیلتون..." required />
-          <input type="password" placeholder="رمزتون..." required />
+        <form action="" method="post" name="log-in">
+            {{ form.phone_number }}
+            {{ form.password }}
           <a href="#">رمز یادت نیست؟</a>
           <input type="submit" value="بزن بریم..." />
         </form>
