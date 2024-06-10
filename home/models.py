@@ -11,7 +11,6 @@ class Course(models.Model):
 
 class SimpleSignup(models.Model):
     name = models.CharField(max_length=100)
-    email = models.EmailField()
     phone = models.CharField(max_length=100)
     text = models.TextField()
     date = models.DateField(auto_now_add=True)
