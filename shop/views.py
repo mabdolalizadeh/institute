@@ -1,12 +1,19 @@
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from .models import *
 
 
 class ShopView(TemplateView):
     template_name = 'shop/shop.html'
+
+    def get(self, request, *args, **kwargs):
+        item_searched = request.GET.get('search')
+        items = Book.objects.all().filter(name__icontains=item_searched)
+        return render(request, 'shop/search.html', {
+            'items': items,
+            'item_searched': item_searched,
+        })
 
     def get_context_data(self, **kwargs):
         active = Book.objects.get(title='Evolve-full pack')
@@ -84,8 +91,3 @@ class CategoryView(TemplateView):
 
         return context
 
-
-# class CategoryView(ListView):
-#     template_name = 'shop/category.html'
-#     model = Book
-#     context_object_name = 'products'

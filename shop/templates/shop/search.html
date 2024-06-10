@@ -3,7 +3,7 @@
 <html lang="fa-IR">
    <head>
       <meta charset="utf-8">
-      <title>{{ category.title }}</title>
+      <title>Shop | search</title>
       {% include 'include/styles.html' %}
    </head>
    <body>
@@ -15,26 +15,26 @@
       <!---------------------------------->
       <div class="pages-bnaer text-center">
          <div class="container">
-            <span>{{ category.title|title }}</span>
+            <span>{{ item_searched }}</span>
          </div>
       </div>
       <div class="container">
          <div class="row">
-             {% for product in products %}
+             {% for item in items %}
              	<div class="col-md-4" style="display: flex">
                <div class="blog-content" style="display: flex; flex-direction: column; justify-content: space-around">
                   <figure>
-                     <img src="{% static 'shop/img/'|add:product.image %}" class="w-100" style="max-width: 60%; margin-left: auto; margin-right: auto; display: block;">
+                     <img src="{% static 'shop/img/'|add:item.image %}" class="w-100" style="max-width: 60%; margin-left: auto; margin-right: auto; display: block;">
                   </figure>
                    <div>
-                  <h5><i class="fa fa-title"></i>{{ product.title }}</h5>
-                  <p>{{ product.title_fa }}</p>
+                  <h5><i class="fa fa-title"></i>{{ item.title }}</h5>
+                  <p>{{ item.title_fa }}</p>
                   <ul>
-                     <li><i class="fa fa-bars"></i>سطح: {{ product.level }}</li>
-                     <li><i class="fa fa-calendar-o"></i>رده سنی: {{ product.age }}</li>
-                     <li><i class="fa fa-user-o"></i>نویسنده: {{ product.author }}</li>
+                     <li><i class="fa fa-bars"></i>سطح: {{ item.level }}</li>
+                     <li><i class="fa fa-calendar-o"></i>رده سنی: {{ item.age }}</li>
+                     <li><i class="fa fa-user-o"></i>نویسنده: {{ item.author }}</li>
                   </ul>
-                  <a href="{% url 'product' product.slug %}" class="mybtn"><i class="fa fa-continuous"></i>ادامه مطلب&raquo;</a>
+                  <a href="{% url 'product' item.slug %}" class="mybtn"><i class="fa fa-continuous"></i>ادامه مطلب&raquo;</a>
                    </div>
                </div>
             </div>
@@ -44,7 +44,7 @@
       </div>
       <!---------------------------------->
       {% include 'include/footer.html' %}
-      <!----------------------> 
+      <!----------------------------------> 
       {% include 'include/scripts.html' %}
    </body>
 </html>
