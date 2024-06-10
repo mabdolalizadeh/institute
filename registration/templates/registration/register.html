@@ -22,6 +22,7 @@
       <div class="form signup">
         <header>ثبت نام</header>
         <form action="#" name="sign-up" method="post">
+        {% csrf_token %}
           {% for foo in form %}
           	{{ foo }}
           {% endfor %}
