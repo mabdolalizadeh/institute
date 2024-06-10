@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from django.views.generic import CreateView
+from .forms import RegistrationForm
 
 
-def register(request):
-    return render(request, 'registration/register.html')
+class RegistrationView(CreateView):
+    template_name = 'registration/register.html'
+    form_class = RegistrationForm
+    success_url = '/'

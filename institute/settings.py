@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop',
     'home',
-    'registration'
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +76,7 @@ WSGI_APPLICATION = 'institute.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
