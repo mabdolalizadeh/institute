@@ -9,5 +9,9 @@ class Registration(models.Model):
     phone_verification_code = models.CharField(max_length=7, blank=True)
     is_verified = models.BooleanField(default=False)
 
+    class Meta:
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
+
     def __str__(self):
         return f'{self.full_name} - {self.phone_number}'
