@@ -1,3 +1,4 @@
+from django.views.generic import ListView
 from django.views.generic.edit import FormView
 from shop.models import Book
 from .models import Course

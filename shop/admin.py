@@ -28,7 +28,3 @@ class TypeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.Book, BookAdmin)
-admin.site.register(models.Category, CategoryAdmin)
-admin.site.register(models.Level, LevelAdmin)
-admin.site.register(models.Age, AgeAdmin)
-admin.site.register(models.Type)

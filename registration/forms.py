@@ -17,3 +17,8 @@ class RegistrationForm(forms.ModelForm):
             'phone_number': '',
             'password': '',
         }
+
+    def clean_phone_number(self):
+        phone_number = self.cleaned_data['phone_number']
+        if len(phone_number) < 11 or len(phone_number) > 12:
+            self.add_error('phone_number', 'شماره‌تونو اشتباه وارد کردید...')
