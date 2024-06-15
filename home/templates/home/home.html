@@ -9,7 +9,7 @@
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
+    <link rel="icon" type="image/png" href="{% static 'home/images/icons8-education-64.ico' %}">
     <!-- custom css file link  -->
     {% if messages %}
         <link rel="stylesheet" href="{% static 'home/success.css' %}">
@@ -80,7 +80,7 @@
         {% else %}
         <h1>آموزشگاه زبان شعف</h1>
         <p>بهترین راه یادگیری زبان</p>
-        <a href="{% url 'register' %}"><button>وارد شوید</button></a>
+        <a href="{% url 'login' %}"><button>وارد شوید</button></a>
     {% endif %} 
 
 </div>

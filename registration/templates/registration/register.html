@@ -1,63 +1,130 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-  <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="fa">
+<head>
+	<title>Sha'af | {% if login %}
+		log in
+        {% else %}
+        Sign up
+	{% endif %} </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'registration/images/icons/icons8-user-48.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/css/util.css' %}">
+{% if login %}
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/css/log_in.css' %}">
+    {% else %}
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/css/sign_in.css' %}">
+{% endif %} 
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="{% static 'registration/images/img-01.png' %}" alt="IMG">
+				</div>
 
-      <title>Sha'af | login</title>
+				<form class="login100-form validate-form" method="post">
+					<span class="login100-form-title">
+						{% if login %}
+							ورود
+                            {% else %}
+                            ثبت نام
+						{% endif %} 
+					</span>
+                    {% csrf_token %}
+                    {% for foo in form %}
+                    	<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                            {{ foo }}
+                            {{ foo.errors }}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i {% if foo.name == "phone_number" %}
+                                	class="fa fa-phone"
+                                    {% elif foo.name == "full_name" %}
+                                	class="fa fa-user"
+                                    {% elif foo.name == "password" %}
+                                	class="fa fa-lock"
+                                {% endif %}  aria-hidden="true"></i>
+                            </span>
+					    </div>
+                    {% endfor %}
+                    
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							بزن بریم...
+						</button>
+					</div>
+                
+                {% if login %}
+                	
+					<div class="text-center p-t-12">
+						
+						<a class="txt2" href="{% url 'home' %}">
+                            رمزتو
+						</a>
+                    <span class="txt1">
+							یادت نیست؟
+						</span>
+					</div>
+                    
+                {% endif %} 
 
-      <link rel="stylesheet" href="{% static 'registration/styles/style.css' %}" />
 
-      <style>
-          
-          html {
-              font-family: "Noto Sans Arabic", sans-serif;
-          }
-      </style>
-  </head>
-  <body>
-    <section class="wrapper">
-      <div class="form signup">
-        <header>ثبت نام</header>
-        <form action="#" name="sign-up" method="post">
-        {% csrf_token %}
-          {% for foo in form %}
-              {{ foo }}
-              {{ foo.errors }}
-          {% endfor %}
-          
-          <div class="checkbox">
-            <input type="checkbox" id="signupCheck" />
-            <label for="signupCheck"><a href="" style="color:white;">قوانینو </a>قبول دارم.</label>
-          </div>
-          <input type="submit" value="ثبت نامم کن" />
-        </form>
-      </div>
+					<div class="text-center p-t-136">
+                        {% if login %}
+						<a class="txt2" href="{% url 'signup' %}">
+                            <i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
+								ثبت نام کن...
+                                {% else %}
+                            <a class="txt2" href="{% url 'login' %}">
+                            <i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
+                                وارد شو...
+							{% endif %} 
+							
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
 
-      <div class="form login">
-        <header>ورود</header>
-        <form action="" method="post" name="log-in">
-            {{ form.phone_number }}
-            {{ form.password }}
-          <a href="#">رمز یادت نیست؟</a>
-          <input type="submit" value="بزن بریم..." />
-        </form>
-      </div>
+	
+<!--===============================================================================================-->	
+	<script src="{% static 'registration/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'registration/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'registration/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'registration/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'registration/vendor/tilt/tilt.jquery.min.js' %}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'registration/js/main.js' %}"></script>
 
-      <script>
-        const wrapper = document.querySelector(".wrapper"),
-          signupHeader = document.querySelector(".signup header"),
-          loginHeader = document.querySelector(".login header");
-
-        loginHeader.addEventListener("click", () => {
-          wrapper.classList.add("active");
-        });
-        signupHeader.addEventListener("click", () => {
-          wrapper.classList.remove("active");
-        });
-      </script>
-    </section>
-  </body>
+</body>
 </html>
