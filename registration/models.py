@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator
 
 
-class User(models.Model):
+class Profile(models.Model):
     full_name = models.CharField(max_length=100, blank=True)
     phone_number = models.CharField(max_length=12, null=True, blank=True)
     password = models.CharField(max_length=100, blank=True)

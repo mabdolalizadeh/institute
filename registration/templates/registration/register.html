@@ -28,7 +28,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'registration/css/log_in.css' %}">
     {% else %}
 	<link rel="stylesheet" type="text/css" href="{% static 'registration/css/sign_in.css' %}">
-{% endif %} 
+{% endif %}
 <!--===============================================================================================-->
 </head>
 <body>
@@ -46,13 +46,16 @@
 							ورود
                             {% else %}
                             ثبت نام
-						{% endif %} 
+						{% endif %}
 					</span>
                     {% csrf_token %}
                     {% for foo in form %}
-                    	<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                            {{ foo }}
-                            {{ foo.errors }}
+                    	<div class="wrap-input100 validate-input {% if foo.errors %}
+                    	alert-validate
+                    	alert
+                        {% endif %}">
+                                {{ foo }}
+                                {{ foo.errors }}
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i {% if foo.name == "phone_number" %}
@@ -65,18 +68,18 @@
                             </span>
 					    </div>
                     {% endfor %}
-                    
+
 					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
 							بزن بریم...
 						</button>
 					</div>
-                
+
                 {% if login %}
-                	
+
 					<div class="text-center p-t-12">
-						
+
 						<a class="txt2" href="{% url 'home' %}">
                             رمزتو
 						</a>
@@ -84,8 +87,8 @@
 							یادت نیست؟
 						</span>
 					</div>
-                    
-                {% endif %} 
+
+                {% endif %}
 
 
 					<div class="text-center p-t-136">
@@ -97,8 +100,8 @@
                             <a class="txt2" href="{% url 'login' %}">
                             <i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
                                 وارد شو...
-							{% endif %} 
-							
+							{% endif %}
+
 						</a>
 					</div>
 				</form>

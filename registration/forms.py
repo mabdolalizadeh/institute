@@ -1,6 +1,6 @@
 from django import forms
 
-from registration.models import User
+from registration.models import Profile
 
 
 # class RegistrationForm(forms.Form):
@@ -22,7 +22,7 @@ from registration.models import User
 
 class RegistrationForm(forms.ModelForm):
     class Meta:
-        model = User
+        model = Profile
         fields = ['full_name', 'phone_number', 'password']
         widgets = {
             'full_name': forms.TextInput(attrs={'placeholder': 'اسمتون...',
@@ -38,6 +38,13 @@ class RegistrationForm(forms.ModelForm):
             'password': '',
         }
 
+        errors = {
+            'full_name': {
+                'required': 'اسمتو حتما باید پر کنی',
+                'invalid': 'اسمتو اشتباه نوشتی',
+            }
+        }
+
     def clean_phone_number(self):
         phone_number = self.cleaned_data['phone_number']
         if len(phone_number) < 11 or len(phone_number) > 12:
@@ -46,7 +53,7 @@ class RegistrationForm(forms.ModelForm):
 
 class LoginForm(forms.ModelForm):
     class Meta:
-        model = User
+        model = Profile
         fields = ['phone_number', 'password']
         widgets = {
             'phone_number': forms.NumberInput(attrs={'placeholder': 'شماره‌تون...',
@@ -61,13 +68,14 @@ class LoginForm(forms.ModelForm):
 
     def clean_phone_number(self):
         phone_number = self.cleaned_data['phone_number']
-        if User.objects.filter(phone_number__iexact=phone_number).exists():
-            self.add_error('phone_number', 'این شماره قبلا ثبت نام شده')
+        if len(phone_number) < 11 or len(phone_number) > 12:
+            self.add_error('phone_number', 'شماره‌تونو اشتباه وارد کردید...')
+
 
     def clean_password(self):
         phone_number = self.cleaned_data['phone_number']
         password = self.cleaned_data['password']
 
-        if not User.objects.filter(phone_number__iexact=phone_number,
-                                   password__iexact=password).exists():
+        if not Profile.objects.filter(phone_number__iexact=phone_number,
+                                      password__iexact=password).exists():
             self.add_error('password', 'رمز اشتباهه')

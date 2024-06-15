@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.utils.crypto import get_random_string
 from django.views.generic import View
 from .forms import RegistrationForm, LoginForm
-from .models import User
+from .models import Profile
 
 
 class SignUp(View):
@@ -16,8 +16,9 @@ class SignUp(View):
     def post(self, request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            check: bool = User.objects.filter(phone_number=form.cleaned_data['phone_number']).exists()
+            check: bool = Profile.objects.filter(phone_number=form.cleaned_data['phone_number']).exists()
             if check:
+                print(form.cleaned_data['phone_number'])
                 form.add_error("phone_number", "شماره تکراریه؛ فکر کنم قبلا ثبت نام کردی...")
             else:
                 print(form.cleaned_data['phone_number'])
@@ -42,8 +43,8 @@ class Login(View):
         if form.is_valid():
             phone_number = form.cleaned_data['phone_number']
             password = form.cleaned_data['password']
-            check: bool = User.objects.filter(phone_number__iexact=phone_number,
-                                              password__iexact=password).exists()
+            check: bool = Profile.objects.filter(phone_number__iexact=phone_number,
+                                                 password__iexact=password).exists()
             if not check:
                 form.add_error("password", "رمز اشتباهه")
             else:
