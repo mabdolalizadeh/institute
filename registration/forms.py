@@ -1,24 +1,24 @@
 from django import forms
 
-from registration.models import User
+from registration.models import Profile
 
 
 class RegistrationForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'یه رمز خوب انتخاب کنید...',
+                                                                'class': 'input100'}), label='')
+
     class Meta:
-        model = User
-        fields = ['full_name', 'phone_number', 'password']
+        model = Profile
+        fields = ['full_name', 'phone_number']
         widgets = {
             'full_name': forms.TextInput(attrs={'placeholder': 'اسمتون...',
                                                 'class': 'input100'}),
             'phone_number': forms.NumberInput(attrs={'placeholder': 'شماره‌تون...',
                                                      'class': 'input100'}),
-            'password': forms.PasswordInput(attrs={'placeholder': 'یه رمز خوب انتخاب کنید...',
-                                                   'class': 'input100'}),
         }
         labels = {
             'full_name': '',
             'phone_number': '',
-            'password': '',
         }
 
         errors = {
@@ -36,18 +36,18 @@ class RegistrationForm(forms.ModelForm):
 
 
 class LoginForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'رمزتون...',
+                                                                 'class': 'input100'}), label='')
+
     class Meta:
-        model = User
-        fields = ['phone_number', 'password']
+        model = Profile
+        fields = ['phone_number', ]
         widgets = {
             'phone_number': forms.NumberInput(attrs={'placeholder': 'شماره‌تون...',
                                                      'class': 'input100'}),
-            'password': forms.PasswordInput(attrs={'placeholder': 'رمزتون...',
-                                                   'class': 'input100'})
         }
         labels = {
             'phone_number': '',
-            'password': ''
         }
 
     def clean_phone_number(self):
@@ -56,13 +56,3 @@ class LoginForm(forms.ModelForm):
             self.add_error('phone_number', 'شماره‌تونو اشتباه وارد کردید...')
 
         return phone_number
-
-    def clean_password(self):
-        phone_number = self.cleaned_data['phone_number']
-        password = self.cleaned_data['password']
-
-        if not User.objects.filter(phone_number__iexact=phone_number,
-                                   password__iexact=password).exists():
-            self.add_error('password', 'رمز اشتباهه')
-
-        return password

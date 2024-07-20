@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.views.generic.base import TemplateView
-from registration.models import User
+from registration.models import Profile
 from .models import *
 
 
